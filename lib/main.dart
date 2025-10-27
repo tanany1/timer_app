@@ -16,10 +16,10 @@ class TimerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const TimerScreen(),
       theme: ThemeData(
-        primaryColor: const Color(0xFF6B4E99),
-        scaffoldBackgroundColor: const Color(0xFF4A2B6B), // Darker background
+        primaryColor: const Color(0xFFFAEDED),
+        scaffoldBackgroundColor: const Color(0xFF1B561F), // Darker background
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: const Color(0xFF9B59B6),
+          secondary: const Color(0xFF1B561F),
         ),
       ),
     );
@@ -170,10 +170,10 @@ class _TimerScreenState extends State<TimerScreen> {
     if (_isRunning && _timeInSeconds <= 60) {
       // Blinking red for the last 20 seconds
       if (_timeInSeconds <= 20) {
-        return _isBlinking ? Colors.red.shade900 : Colors.red;
+        return _isBlinking ? Colors.green.shade900 : Colors.green;
       }
       // Solid red when 1 minute is left
-      return Colors.red;
+      return Colors.green;
     }
     // Default background color
     return Theme.of(context).scaffoldBackgroundColor;
@@ -185,7 +185,7 @@ class _TimerScreenState extends State<TimerScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF6B4E99),
+            backgroundColor: const Color(0xFF1B561F),
             foregroundColor: Colors.white,
             shape: const StadiumBorder()),
         onPressed: () => _addTime(seconds),
@@ -236,8 +236,8 @@ class _TimerScreenState extends State<TimerScreen> {
                         color: Colors.white,
                         fontWeight: FontWeight.w300),
                   ),
-                  progressColor: Colors.blueAccent, // Changed color to blue
-                  backgroundColor: const Color(0xFF6B4E99),
+                  progressColor: Color(0xFFFFFFFF), // Changed color to blue
+                  backgroundColor: const Color(0xFF27B42A),
                   circularStrokeCap: CircularStrokeCap.round,
                   animateFromLastPercent: true,
                   animation: true,
